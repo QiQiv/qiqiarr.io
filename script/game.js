@@ -17,9 +17,7 @@ function createPaw() {
   const { x, y } = randomLocation();
   paw.style.top = `${y}px`;
   paw.style.left = `${x}px`;
-  paw.innerHTML = `<img src="../images/game-cats-hand-2.png" alt="paw" style="transform: rotate(${
-    Math.random() * 360
-  }deg)" />`;
+  paw.innerHTML = `<img src="../images/game-cats-hand-2.png" alt="paw" style="transform: rotate(${Math.random() * 360}deg)" />`;
   paw.addEventListener("click", catchpaw);
   play.appendChild(paw);
 }
