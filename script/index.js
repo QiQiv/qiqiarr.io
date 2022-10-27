@@ -21,10 +21,10 @@ for (let i = 0; i < nav.length; i++) {
 calendar.onclick = (e) => {
   setTimeout(()=>{
     window.location.href = "./pages/calendar.html";
-  },1200)
+  },800)
 };
 game.onclick =()=>{
   setTimeout(()=>{
     window.location.href = "./pages/game.html";
-  },1200)
+  },800)
 }
