@@ -4,6 +4,7 @@ let play = document.querySelector(".play");
 let bgm = document.getElementById("bgm");
 
 bgm.volume = 0.2;
+bgm.play();
 
 startText.onclick = () => {
   start.classList.add("hide");
