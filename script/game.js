@@ -3,7 +3,7 @@ let startText = document.querySelector(".text");
 let play = document.querySelector(".play");
 let bgm = document.getElementById("bgm");
 
-bgm.volume = "0.3";
+//bgm.volume = "0.3";
 
 startText.onclick = () => {
   start.classList.add("hide");
