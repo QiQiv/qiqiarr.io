@@ -46,7 +46,7 @@ body {
   animation: nav-mouseout 1s forwards;
 }
 .calendar {
-  background-image: url("../images/index-cover-calendar.png");
+  background-image: url("../images/index-cover-calendar.jpg");
 }
 .game{
   background-image: url('../images/index-cover-game-2.png');
