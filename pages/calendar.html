@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>班表日历</title>
-    <link rel="stylesheet" href="../css/calendar.css" />
+    <link rel="stylesheet" href="../style/calendar.css" />
     <script src="../script/calendar.js" defer></script>
   </head>
   <body>
@@ -20,16 +20,20 @@
       <div class="header">
         <h2 class="name">林老师</h2>
         <h2 class="title">
-          <span id="year">2022</span>
+          <div class="inline">
+            <span id="year">2022</span>
+            <div id="year-list"  class="hide">
+              <span id="year-pre"><</span>
+              <span id="year-next">></span>
+            </div>
+          </div>
           年
-          <span id="month">10</span>
+          <div class="inline">
+            <span id="month">10</span>
+            <div id="month-list" class="hide"></div>
+          </div>
           月班表
         </h2>
-        <div id="year-list"  class="hide">
-          <span id="year-pre"><</span>
-          <span id="year-next">></span>
-        </div>
-        <div id="month-list" class="hide"></div>
       </div>
       <div class="calendar">
         <div class="week-days">
