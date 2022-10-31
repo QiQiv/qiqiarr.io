@@ -75,12 +75,9 @@ logo.onclick = () => {
   btn.classList.add("show");
 };
 
-file.onclick = () => {
+file.onchange = function () {
   btn.classList.remove("show");
   btn.classList.add("hide");
-};
-
-file.onchange = function () {
   let fileReader = new FileReader();
   let img = document.querySelector(".img");
   fileReader.readAsDataURL(this.files[0]);
@@ -155,6 +152,7 @@ function getList(e, m) {
     div.onclick = () => {
       monthList.classList.add("hide");
       monthList.classList.remove("show");
+      monthList.innerHTML="";
       month.innerText = i;
       calendarShow();
       generateCalendar(i-1, currentYear);
