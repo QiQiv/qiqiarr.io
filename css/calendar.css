@@ -29,6 +29,7 @@ html {
   background: linear-gradient(to right, var(--bgc-purple), var(--bgc-pink));
 }
 .logo {
+  position: relative;
   width: 100px;
   height: 100px;
   background-size: contain;
@@ -45,6 +46,42 @@ html {
   display: inline-block;
   font-size: 11px;
   align-items: center;
+}
+.btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  color: #ffffff;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.4);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+.btn.show {
+  opacity: 1;
+  z-index: 99;
+  transition: all 1s ease-in-out;
+}
+.btn.hide {
+  opacity: 0;
+  z-index: -99;
+  transition: all 1s ease-in-out;
+}
+.file {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.pseudo-style {
+  width: 100%;
+  height: 100%;
+  padding-top: 25px;
+  position: absolute;
+  top: 0;
+  font-size: 14px;
+  text-align: center;
+  line-height: 50px;
 }
 .header {
   margin: 35px 0;
@@ -175,47 +212,6 @@ html {
 .days div.choose::after {
   content: "\A休\A息";
   font-size: 11px;
-}
-.btn {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  top: 18%;
-  left: 44%;
-  border-radius: 50px;
-  overflow: hidden;
-  color: #ffffff;
-  font-weight: bold;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
-  transform: scale(1.4);
-}
-.btn.show {
-  opacity: 1;
-  z-index: 99;
-  transition: all 1s ease-in-out;
-}
-.btn.hide {
-  opacity: 0;
-  z-index: -99;
-  transition: all 1s ease-in-out;
-}
-.pseudo-style{
-  padding-top: 25px;
-}
-.file {
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-}
-.pseudo-style {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  font-size: 11px;
-  text-align: center;
-  line-height: 50px;
-  z-index: -100;
 }
 @keyframes show-flowdown {
   0% {
