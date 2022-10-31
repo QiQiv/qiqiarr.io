@@ -1,3 +1,13 @@
+let calendar = document.querySelector(".calendar");
+let year = document.querySelector("#year");
+let month = document.querySelector("#month");
+let footer = document.querySelector(".footer");
+let header_name = document.querySelector(".name");
+let logo = document.querySelector(".logo");
+let file = document.querySelector(".file");
+let btn = document.querySelector(".btn");
+let monthList = document.querySelector("#month-list");
+
 const isLeapYear = (year) => {
   return (
     (year % 4 === 0 && year % 100 !== 0) ||
@@ -8,15 +18,6 @@ const isLeapYear = (year) => {
 const getFebDays = (year) => {
   return isLeapYear(year) ? 29 : 28;
 };
-
-let calendar = document.querySelector(".calendar");
-let year = document.querySelector("#year");
-let month = document.querySelector("#month");
-let footer = document.querySelector(".footer");
-let header_name = document.querySelector(".name");
-let logo = document.querySelector(".logo");
-let file = document.querySelector(".file");
-let btn = document.querySelector(".btn");
 
 const generateCalendar = (month, year) => {
   let days = document.querySelector(".days");
@@ -54,20 +55,29 @@ const generateCalendar = (month, year) => {
 };
 
 let currentDate = new Date();
-generateCalendar(currentDate.getMonth(), currentDate.getFullYear());
+let currentYear = currentDate.getFullYear();
+let currentMonth = currentDate.getMonth();
+year.innerText = currentYear;
+month.innerText = currentMonth + 1;
+generateCalendar(currentMonth, currentYear);
+
+function calendarHide() {
+  calendar.classList.remove("show");
+  calendar.classList.add("hide");
+}
+function calendarShow() {
+  calendar.classList.remove("hide");
+  calendar.classList.add("show");
+}
 
 logo.onclick = () => {
   btn.classList.remove("hide");
-  calendar.classList.remove("show");
   btn.classList.add("show");
-  calendar.classList.add("hide");
 };
 
 file.onclick = () => {
   btn.classList.remove("show");
-  calendar.classList.remove("hide");
   btn.classList.add("hide");
-  calendar.classList.add("show");
 };
 
 file.onchange = function () {
@@ -80,45 +90,74 @@ file.onchange = function () {
 };
 
 header_name.onclick = () => {
-  const reg = /\S+/;
-  let new_name = prompt('请输入您的称呼："**老师"');
-  let result = true;
-  do {
-    if (reg.test(new_name)) {
-      header_name.innerText = new_name;
-      result = false;
+  preText = header_name.innerText;
+  header_name.innerText = "";
+  let input = document.createElement("input");
+  input.setAttribute("type", "text");
+  input.placeholder = "输入您的称呼";
+  header_name.appendChild(input);
+  input.focus();
+  input.onblur = () => {
+    if (input.value) {
+      header_name.innerText = input.value;
     } else {
-      new_name = prompt('૮₍ ˃ ⤙ ˂ ₎ა什么都没有收到："**老师"');
+      header_name.innerText = preText;
     }
-  } while (result);
+  };
+  input.addEventListener("keyup", (e) => {
+    let key = e.which || e.keyCode;
+    if (key == 13) {
+      if (input.value) {
+        header_name.innerText = input.value;
+      } else {
+        header_name.innerText = preText;
+      }
+    }
+  });
 };
 
 year.onclick = () => {
-  const reg = /^20\d{2}$/;
-  let new_year = prompt("૮(˶ᵔ ᵕ ᵔ˶)ა指定年份：20xx");
-  let result = true;
-  do {
-    if (reg.test(new_year)) {
-      year.innerText = new_year;
-      generateCalendar(month.innerText - 1, new_year);
-      result = false;
-    } else {
-      new_year = prompt("૮₍ ˃ ⤙ ˂ ₎ა打人警告：20xx");
-    }
-  } while (result);
+  calendarHide();
+  let yearList = document.querySelector("#year-list");
+  yearList.classList.remove("hide");
+  yearList.classList.add("show");
+  let perYear = document.querySelector('#year-pre')
+  let nextYear = document.querySelector('#year-next')
+  perYear.onclick = ()=>{
+    currentYear--;
+    changeYear(currentYear)
+  }
+  nextYear.onclick = ()=>{
+    currentYear++;
+    changeYear(currentYear)
+  }
+  function changeYear(y){
+    yearList.classList.remove("show");
+    yearList.classList.add("hide");
+    year.innerText = y
+    generateCalendar(month.innerText - 1, y);
+    calendarShow();
+  }
 };
 
 month.onclick = () => {
-  const reg = /^0?[1-9]$|^1[0-2]$/;
-  let new_month = prompt("૮(˶ᵔ ᵕ ᵔ˶)ა指定月份");
-  let result = true;
-  do {
-    if (reg.test(new_month)) {
-      month.innerText = new_month;
-      generateCalendar(new_month - 1, year.innerText);
-      result = false;
-    } else {
-      new_month = prompt("૮₍ ˃ ⤙ ˂ ₎ა打人警告");
-    }
-  } while (result);
+  calendarHide();
+  getList(monthList, currentMonth);
+  monthList.classList.remove("hide");
+  monthList.classList.add("show");
 };
+
+function getList(e, m) {
+  for (let i = 1; i < 13; i++) {
+    let div = document.createElement("h2");
+    div.innerText = i;
+    e.appendChild(div);
+    div.onclick = () => {
+      monthList.classList.add("hide");
+      monthList.classList.remove("show");
+      month.innerText = i;
+      calendarShow();
+      generateCalendar(i-1, currentYear);
+    };
+  }
+}
