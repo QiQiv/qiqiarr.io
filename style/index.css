@@ -13,6 +13,8 @@ body {
   text-align: center;
   color: var(--color);
   font-family: var(--font-family);
+  position: relative;
+  overflow: hidden;
 }
 .header {
   width: 100%;
@@ -45,16 +47,20 @@ body {
 .nav-list.mouseout {
   animation: nav-mouseout 1s forwards;
 }
+.resume{
+  background-image: url('../images/index-cover-resume.jpg');
+}
 .calendar {
   background-image: url("../images/index-cover-calendar.jpg");
 }
 .game{
   background-image: url('../images/index-cover-game-2.png');
 }
-.btn {
+.cover {
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: rgb(0, 0, 0, 0.5);
@@ -63,12 +69,13 @@ body {
   font-weight: bold;
   opacity: 0;
 }
-.btn.show {
+.cover.show {
   animation: show-btn 1s forwards;
 }
-.btn.hide {
+.cover.hide {
   animation: hide-btn 1s forwards;
 }
+
 .footer {
   position: fixed;
   width: 100%;
@@ -108,4 +115,45 @@ body {
   100% {
     flex: 2;
   }
+}
+#form{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) scale(.9);
+  width: 200px;
+  height: 100px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: var(--shadow);
+  opacity: 0; 
+  z-index: -99;
+  transition: all .5s ease-in-out;
+}
+#form.show{
+  opacity: 1;
+  z-index: 99;
+  transition: all 1s ease-in-out;
+}
+.pw{
+  margin: 20px 10px;
+}
+#error{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  padding: 5px 20px;
+  transform: translateX(-50%);
+  border-radius: 5px;
+  background-color: rgb(0, 0, 0, 0.5);
+  box-shadow: var(--shadow);
+  opacity: 0; 
+  z-index: -99;
+  transition: all 1s ease-in-out;
+}
+#error.show{
+  opacity: 1;
+  z-index: 99;
+  transition: all .5s ease-in-out;
 }
