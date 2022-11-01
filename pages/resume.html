@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=0"
+    />
+    <title>RESUME</title>
+    <link rel="stylesheet" href="../style/resume.css" />
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="../script/resume.js" defer></script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="left">
+        <div id="logo"></div>
+        <div class="left-box">
+          <h3 class="title">个人信息</h3>
+          <div v-for="inf in leftInf" class="details">
+            <span class="detail-name">{{ inf.name }}：</span>
+            <span class="detail-value">{{ inf.value }}</span>
+          </div>
+        </div>
+        <div class="left-box">
+          <h3 class="title">技能证书</h3>
+          <div class="detail-name" v-for="skil in leftSkil">
+            {{ skil.name }}
+          </div>
+        </div>
+        <div class="left-box">
+          <h3 class="title">联系方式</h3>
+          <div class="details" v-for="contact in leftContact">
+            <div class="detail-name">{{ contact.name }}：</div>
+            <div class="detail-value">{{ contact.value }}</div>
+          </div>
+        </div>
+        <div class="link">
+          <a href="https://qiqiv.github.io/qiqiarr.io/" class="blog" target="_self">博客</a>
+        </div>
+      </div>
+      <div id="right">
+        <div class="right-box">
+          <h3 id="name">林迪宜</h3>
+          <h3 class="title">求职意向</h3>
+          <div class="content" v-for="career in career">
+            <div class="content-left">{{ career.job }}</div>
+            <div class="content-right">
+              <div class="bold">{{career.project }}</div>
+              <div class="des">{{ career.value }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="right-box">
+          <h3 class="title">教育经历</h3>
+          <div class="content" v-for="edu in educate">
+            <div class="content-left">
+              <div class="time"> {{ edu.time }} </div>
+              <div> {{ edu.school }} </div>
+            </div>
+            <div class="content-right">
+              <div class="bold"> {{ edu.major }} </div>
+              <div class="des"> {{ edu.descript }} </div>
+            </div>
+          </div>
+        </div>
+        <div class="right-box">
+          <h3 class="title">工作经历</h3>
+          <div class="content" v-for="careerexp in careerExp">
+            <div class="content-left">
+              <div class="time"> {{ careerexp.time }} </div>
+              <div> {{ careerexp.ltd }} </div>
+            </div>
+            <div class="content-right">
+              <div class="bold"> {{ careerexp.job }} </div>
+              <div class="des"> {{ careerexp.descript }} </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../components/app.js"></script>
+  </body>
+</html>
