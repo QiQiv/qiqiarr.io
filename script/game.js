@@ -2,6 +2,7 @@ let start = document.querySelector(".start");
 let startText = document.querySelector(".text");
 let play = document.querySelector(".play");
 let bgm = document.getElementById("bgm");
+let bgmStart = document.getElementById("bgm-start");
 let time = document.querySelector(".time");
 let scoreDiv = document.querySelector(".score");
 let score = 0;
@@ -9,12 +10,16 @@ let seconds = 0;
 let generate;
 let timer;
 
-bgm.play();
 bgm.volume = 0.2;
+bgmStart.volume = 0.3;
 
 startText.onclick = () => {
   start.classList.add("hide");
   play.classList.add("show");
+  bgmStart.play();
+  setTimeout(()=>{
+    bgm.play();
+  },50)
   createPaw();
   generate = setInterval(() => {
     createPaw();
