@@ -153,7 +153,9 @@ year.onclick = () => {
 
 month.onclick = () => {
   calendarHide();
-  getList(monthList, currentMonth);
+  if(monthList.innerHTML==""){
+    getList(monthList, currentMonth);
+  }
   monthList.classList.remove("hide");
   monthList.classList.add("show");
 };
