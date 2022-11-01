@@ -1,0 +1,133 @@
+:root{
+    --shadow: 2px 2px 5px rgba(0, 0, 0, .3);
+    --pink:  rgb(240, 231, 236);
+    --purple: rgb(225, 221, 230);
+    --color: rgb(88, 58, 110);
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: var(--color);
+}
+#container{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+}
+#left,
+#right{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px 0;
+}
+#left{
+    flex: 1;
+    min-width: 190px;
+    max-width: 270px;
+    background: url('../images/resume-bg1.jpg') no-repeat -70px 0;
+    background-size: cover;
+    box-shadow: var(--shadow);
+}
+#right{
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    max-height: 100vh;
+}
+#logo{
+    width: 115px;
+    height: 130px;
+    background: url('../images/resume-logo.jpg') no-repeat 0px -15px;
+    background-size: cover;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+.left-box{
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    padding: 20px;
+}
+.title{
+    margin-bottom: 10px;
+}
+.details{
+    font-size: 12px;
+    margin: 5px 0;
+}
+.detail-name{
+    padding-right: 5px;
+    font-weight: bold;
+    font-size: 12px;
+}
+.right-box{
+    margin: 0 30px;
+    white-space: pre-wrap;
+    text-align: left;
+}
+#right .title{
+    max-width: 110px;
+    text-align: center;
+    padding: 3px 16px;
+    border-radius: 50px;
+    box-shadow: var(--shadow);
+    color: #fff;
+    background: url('../images/resume-bg1.jpg') no-repeat -30px;
+}
+#right #name{
+    letter-spacing: 15px;
+    padding: 3px 10px;
+    margin-bottom: 15px;
+}
+#right .content{
+    font-size: 12px;
+    display: flex;
+    margin: 15px 0;
+}
+.content-left{
+    min-width: 160px;
+    font-weight: bold;
+    margin: 0 5px 0 10px;
+}
+.des{
+    display: inline-block;
+    margin-top: 5px;
+}
+.time{
+    display: inline-block;
+    margin-bottom: 5px;
+}
+.bold{
+    font-weight: bold;
+}
+.link{
+    display: flex;
+}
+.blog,
+.mp{
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: rgb(241, 104, 157);
+    border-radius: 50px;
+    background-color:  rgba(255, 255, 255, 0.6);
+    box-shadow: var(--shadow);
+    text-decoration: none;
+}
+.blog:hover{
+    color: #fff;
+    font-size: 20px;
+    background-color: rgba(241, 104, 157, 0.5);
+    transition: all .3s ease-in-out;
+}
