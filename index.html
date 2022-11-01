@@ -7,37 +7,45 @@
     <title>机械少女降临计划</title>
     <link rel="stylesheet" href="./style/index.css" />
     <script src="./script/index.js" defer></script>
-
   </head>
   <body>
     <div class="header">
-      <audio src="./music/music.mp3" loop >
+      <audio src="./music/music.mp3" loop>
         <span>音乐失踪啦</span>
       </audio>
       <img src="./images/logo-qiqi.jpg" alt="QiQi" />
-      <p>
-        ~
-      </p>
+      <p>~</p>
     </div>
 
     <div class="nav" id="nav">
+      <div class="nav-list resume">
+        <div class="cover">
+          <div class="btn">简历</div>
+        </div>
+      </div>
       <div class="nav-list calendar">
-        <div class="btn">排班表</div>
+        <div class="cover">
+          <div class="btn">排班表</div>
+        </div>
       </div>
       <div class="nav-list game">
-        <div class="btn">小游戏</div>
+        <div class="cover">
+          <div class="btn">小游戏</div>
+        </div>
       </div>
       <div class="nav-list">
-        <div class="btn">正在施工...</div>
-      </div>
-      <div class="nav-list">
-        <div class="btn">正在施工...</div>
+        <div class="cover">
+          <div class="btn">正在施工...</div>
+        </div>
       </div>
     </div>
 
-    <div class="footer">
-      <p></p>
-    </div>
+    <form action="" id="form">
+      <input type="password" class="pw" placeholder="请输入口令">
+      <button type="submit" class="submit">提交</button>
+      <button type="reset" class="reset">取消</button>
+    </form>
 
+    <div id="error">密码错误</div>
   </body>
 </html>
