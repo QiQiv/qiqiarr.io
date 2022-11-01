@@ -2,23 +2,24 @@ let start = document.querySelector(".start");
 let startText = document.querySelector(".text");
 let play = document.querySelector(".play");
 let bgm = document.getElementById("bgm");
+let time = document.querySelector(".time");
 let scoreDiv = document.querySelector(".score");
 let score = 0;
+let seconds = 0;
+let generate;
+let timer;
 
-bgm.play()
+bgm.play();
 bgm.volume = 0.2;
 
 startText.onclick = () => {
   start.classList.add("hide");
   play.classList.add("show");
   createPaw();
-  timer();
-};
-
-function timer() {
-  let time = document.querySelector(".time");
-  let seconds = 0;
-  setInterval(() => {
+  generate = setInterval(() => {
+    createPaw();
+  }, 600);
+  timer = setInterval(() => {
     let m = Math.floor(seconds / 60);
     let s = seconds % 60;
     m = m < 10 ? `0${m}` : m;
@@ -26,7 +27,7 @@ function timer() {
     time.innerHTML = `Time: ${m}:${s}`;
     seconds++;
   }, 1000);
-}
+};
 
 function createPaw() {
   const paw = document.createElement("div");
@@ -37,22 +38,23 @@ function createPaw() {
   paw.innerHTML = `<img src="../images/game-cats-hand-2.png" alt="paw" style="transform: rotate(${
     Math.random() * 360
   }deg)" />`;
-  paw.addEventListener("click", catchpaw);
   play.appendChild(paw);
+  paw.addEventListener("click", catchpaw);
 }
 
 function catchpaw() {
   let music = document.getElementById("pawm");
   music.play();
   scorer();
-  this.classList.add("caught");
-  setTimeout(() => this.remove(), 100);
-  addPaw();
-}
-
-function addPaw() {
-  setTimeout(createPaw, 800);
-  setTimeout(createPaw, 1500);
+  setTimeout(() => {
+    this.remove();
+    if (!document.querySelector(".paw")) {
+      clearInterval(generate);
+      clearInterval(timer);
+      let win = document.querySelector(".win");
+      win.classList.add("show");
+    }
+  }, 100);
 }
 
 function randomLocation() {
