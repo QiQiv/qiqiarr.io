@@ -116,7 +116,6 @@ header_name.onclick = () => {
 };
 
 year.onclick = () => {
-  calendarHide();
   yearListShow();
   let perYear = document.querySelector("#year-pre");
   let nextYear = document.querySelector("#year-next");
@@ -129,7 +128,6 @@ year.onclick = () => {
     changeYear(currentYear);
   };
   function changeYear(y) {
-    yearListHide();
     year.innerText = y;
     generateCalendar(month.innerText - 1, y);
     calendarShow();
@@ -137,7 +135,6 @@ year.onclick = () => {
 };
 
 month.onclick = () => {
-  calendarHide();
   if (monthList.innerHTML == "") {
     getList(monthList, currentMonth);
   }
@@ -171,18 +168,22 @@ function calendarHide() {
   calendar.classList.add("hide");
 }
 function monthListShow() {
+  readmeHide();
+  calendarHide()
+  yearListHide()
   monthList.classList.remove("hide");
   monthList.classList.add("show");
-  readmeHide();
 }
 function monthListHide() {
   monthList.classList.remove("show");
   monthList.classList.add("hide");
 }
 function yearListShow() {
+  calendarHide();
+  readmeHide();
+  monthListHide()
   yearList.classList.remove("hide");
   yearList.classList.add("show");
-  readmeHide();
 }
 function yearListHide() {
   yearList.classList.remove("show");
