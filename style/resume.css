@@ -39,7 +39,7 @@
     justify-content: start;
     align-items: flex-start;
     max-height: 100vh;
-    overflow-y: scroll;
+    overflow: scroll;
 }
 #logo{
     width: 115px;
