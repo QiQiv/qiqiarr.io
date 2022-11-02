@@ -64,9 +64,9 @@ generateCalendar(currentMonth, currentYear);
 
 let readme = document.querySelector("#readme");
 let text = document.querySelector("#readme-text");
+
 readme.onclick = () => {
   if (text.classList.contains("hide")) {
-    calendarHide();
     readmeShow();
   } else {
     calendarShow();
@@ -191,6 +191,9 @@ function yearListHide() {
 function readmeShow() {
   text.classList.remove("hide");
   text.classList.add("show");
+  monthListHide()
+  yearListHide()
+  calendarHide()
 }
 function readmeHide() {
   text.classList.add("hide");
