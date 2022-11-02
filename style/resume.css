@@ -36,9 +36,10 @@
     flex: 2;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: start;
     align-items: flex-start;
     max-height: 100vh;
+    overflow-y: scroll;
 }
 #logo{
     width: 115px;
