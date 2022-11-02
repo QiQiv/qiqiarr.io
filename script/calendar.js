@@ -74,6 +74,7 @@ readme.onclick = () => {
 };
 
 logo.onclick = () => {
+  calendarShow()
   btn.classList.remove("hide");
   btn.classList.add("show");
 };
@@ -90,6 +91,7 @@ file.onchange = function () {
 };
 
 header_name.onclick = () => {
+  calendarShow()
   preText = header_name.innerText;
   header_name.innerText = "";
   let input = document.createElement("input");
