@@ -11,15 +11,13 @@ let generate;
 let timer;
 
 bgm.volume = 0.2;
-bgmStart.volume = 0.3;
+bgmStart.volume = 0.2;
 
 startText.onclick = () => {
   start.classList.add("hide");
   play.classList.add("show");
   bgmStart.play();
-  setTimeout(()=>{
-    bgm.play();
-  },50)
+  bgm.play();
   createPaw();
   generate = setInterval(() => {
     createPaw();
