@@ -25,7 +25,6 @@ Vue.createApp({
       leftContact: [
         { name: "电话", value: "13672462278" },
         { name: "邮箱", value: "1016641979@qq.com" },
-        { name: "博客", value: "https://qiqiv.github.io/qiqiarr.io/" },
       ],
       educate: [
         {
