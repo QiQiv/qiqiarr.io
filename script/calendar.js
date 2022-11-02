@@ -1,13 +1,13 @@
-let calendar = document.querySelector(".calendar");
-let year = document.querySelector("#year");
-let month = document.querySelector("#month");
-let footer = document.querySelector(".footer");
-let header_name = document.querySelector(".name");
-let logo = document.querySelector(".logo");
-let file = document.querySelector(".file");
-let btn = document.querySelector(".btn");
-let monthList = document.querySelector("#month-list");
-let yearList = document.querySelector("#year-list");
+const calendar = document.querySelector(".calendar");
+const year = document.querySelector("#year");
+const month = document.querySelector("#month");
+const footer = document.querySelector(".footer");
+const header_name = document.querySelector(".name");
+const logo = document.querySelector(".logo");
+const file = document.querySelector(".file");
+const btn = document.querySelector(".btn");
+const monthList = document.querySelector("#month-list");
+const yearList = document.querySelector("#year-list");
 
 const isLeapYear = (year) => {
   return (
@@ -21,10 +21,10 @@ const getFebDays = (year) => {
 };
 
 const generateCalendar = (month, year) => {
-  let days = document.querySelector(".days");
+  const days = document.querySelector(".days");
   days.innerHTML = "";
-  let calendar_header_year = document.querySelector("#year");
-  let days_of_month = [
+  const calendar_header_year = document.querySelector("#year");
+  const days_of_month = [
     31,
     getFebDays(year),
     31,
@@ -38,9 +38,9 @@ const generateCalendar = (month, year) => {
     30,
     31,
   ];
-  let first_day = new Date(year, month);
+  const first_day = new Date(year, month);
   for (let i = 0; i <= days_of_month[month] + first_day.getDay() - 1; i++) {
-    let day = document.createElement("div");
+    const day = document.createElement("div");
     if (i >= first_day.getDay()) {
       day.innerHTML = i - first_day.getDay() + 1;
     } else {
@@ -55,15 +55,15 @@ const generateCalendar = (month, year) => {
   }
 };
 
-let currentDate = new Date();
+const currentDate = new Date();
 let currentYear = currentDate.getFullYear();
 let currentMonth = currentDate.getMonth();
 year.innerText = currentYear;
 month.innerText = currentMonth + 1;
 generateCalendar(currentMonth, currentYear);
 
-let readme = document.querySelector("#readme");
-let text = document.querySelector("#readme-text");
+const readme = document.querySelector("#readme");
+const text = document.querySelector("#readme-text");
 
 readme.onclick = () => {
   if (text.classList.contains("hide")) {
@@ -82,8 +82,8 @@ logo.onclick = () => {
 file.onchange = function () {
   btn.classList.remove("show");
   btn.classList.add("hide");
-  let fileReader = new FileReader();
-  let img = document.querySelector(".img");
+  const fileReader = new FileReader();
+  const img = document.querySelector(".img");
   fileReader.readAsDataURL(this.files[0]);
   fileReader.onload = function () {
     img.src = fileReader.result;
@@ -94,7 +94,7 @@ header_name.onclick = () => {
   calendarShow()
   preText = header_name.innerText;
   header_name.innerText = "";
-  let input = document.createElement("input");
+  const input = document.createElement("input");
   input.setAttribute("type", "text");
   input.placeholder = "输入您的称呼";
   header_name.appendChild(input);
@@ -119,8 +119,8 @@ header_name.onclick = () => {
 
 year.onclick = () => {
   yearListShow();
-  let perYear = document.querySelector("#year-pre");
-  let nextYear = document.querySelector("#year-next");
+  const perYear = document.querySelector("#year-pre");
+  const nextYear = document.querySelector("#year-next");
   perYear.onclick = () => {
     currentYear--;
     changeYear(currentYear);
@@ -145,7 +145,7 @@ month.onclick = () => {
 
 function getList(e, m) {
   for (let i = 1; i < 13; i++) {
-    let div = document.createElement("h2");
+    const div = document.createElement("h2");
     div.innerText = i;
     e.appendChild(div);
     div.onclick = () => {
