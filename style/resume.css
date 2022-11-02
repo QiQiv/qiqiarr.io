@@ -97,6 +97,9 @@
     font-weight: bold;
     margin: 0 5px 0 10px;
 }
+.content-right{
+    min-width: 250px;
+}
 .des{
     display: inline-block;
     margin-top: 5px;
