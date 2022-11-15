@@ -36,6 +36,8 @@ body {
   flex-wrap: wrap;
   justify-content: space-between;
   box-shadow: var(--shadow);
+  border-radius: 5px;
+  overflow: hidden;
 }
 .nav-list {
   flex: 25%;
